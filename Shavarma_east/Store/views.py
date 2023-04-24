@@ -11,4 +11,6 @@ def show_info(request):
 
 
 def add_food(request):
+    if request.method == 'POST':
+        print(request.data)
     return render(request, 'add_food.html')

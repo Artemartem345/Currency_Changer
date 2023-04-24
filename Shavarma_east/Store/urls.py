@@ -5,7 +5,8 @@ from Store import views
 
 urlpatterns = [
     path('products', views.show_info),
-    path('add_food', views)
+    path('add_food', views.add_food),
+
     
     
 ]
