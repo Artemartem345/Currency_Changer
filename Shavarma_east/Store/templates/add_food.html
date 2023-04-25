@@ -4,13 +4,18 @@
 
 <h2>HTML Forms</h2>
 
-<form action="" method='POST'>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="href" value="John"><br>
-  <label for="lname">Last name:</label><br>
+
+
+<form action="{%url 'add_food'%}" method='POST'>
+  {% csrf_token %} 
+  <label for="fname">Имя продукта:</label><br>
+  <input type="text" id="fname" name="href" value=""><br>
+  <label for="lname">Ссылка на продукт:</label><br>
   <input type="text" id="href" name='title'><br><br>
-  <label for="lname">Last name:</label><br>
+  <label for="lname">Цена продукта:</label><br>
   <input type="number" min='0' max='12000' id="href" name='price'><br><br>
+  <label for='descr'>Описание продукта:</label><br>
+  <input type="text" name='descr' value=""><br><br>
   <input type="submit" value="Submit">
 </form>
 
