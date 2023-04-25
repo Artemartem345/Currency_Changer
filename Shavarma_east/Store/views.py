@@ -13,5 +13,10 @@ def show_info(request):
 def add_food(request):
     if request.method == 'POST':
         print(request.POST)
+        
+        food = Food.objects.create(title=request.POST.get('title'), price=int(request.POST.get('price')) , href=request.POST.get('href') + '.com')
+        
+        
     return render(request, 'add_food.html')
+
 
