@@ -1,0 +1,12 @@
+{% comment %} {% regroup object_list by category as category_list %}
+<ul>
+    {% for category, obj_list in category_list %}
+        <li>{{ category }}
+        <ul>
+            {% for obj in obj_list %}
+                <li>{{ obj }}</li>
+            {% endfor %}
+        </ul>
+        </li>
+    {% endfor %}
+</ul> {% endcomment %}
