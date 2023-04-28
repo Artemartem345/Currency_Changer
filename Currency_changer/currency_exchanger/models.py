@@ -12,12 +12,12 @@ CURRENCY_CHOICES = (
     ('CAD', 'CANADIAN CURRENCY'),
     
 )
-class Currency:
+class Currency(models.Model):
     currency = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
     
                                 
 
-class Course:
+class Course(models.Model):
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
-    date_time = models.DateTimeField
-    course = models.FloatField    
+    date_time = models.DateTimeField()
+    course = models.FloatField()    
