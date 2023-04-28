@@ -18,6 +18,6 @@ class Currency:
                                 
 
 class Course:
-    currency = models.ForeignKey. 
-    time_course = 
-    course1 =     
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
+    date_time = models.DateTimeField
+    course = models.FloatField    
