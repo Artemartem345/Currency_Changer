@@ -16,7 +16,7 @@ CURRENCY_CHOICES = (
     ('CZK', 'CZECH KORUNA CURRENCY'),
     ('DKK', 'DANISH CRONE'),
     ('EGP', 'EGYPTIAN POUND CURRENCY'),
-    
+    ('JPY', 'JAPANESE YEN CURRENCY')
 )
 class Currency(models.Model):
     currency = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
