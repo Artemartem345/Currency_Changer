@@ -6,10 +6,16 @@ from django.db import models
 CURRENCY_CHOICES = (
     ('EUR', 'EUROPEAN CURRENCY'),
     ('USD', 'UNITED STATES DOLLAR'),
-    ('RUB', 'RUSSIAN ROUBLE'),
+    ('RUB', 'RUSSIAN ROUBLE CURRENCY'),
     ('YEN', 'JAPAN CURRENCY'),
     ('DIR', 'ARABIAN CURRENCY'),
     ('CAD', 'CANADIAN CURRENCY'),
+    ('AUD', 'AUSTRALIAN DOLLAR CURRENCY'),
+    ('AZN', 'AZERBAIJANIAN MANAT CURRENCY'),
+    ('BGN', 'BULGARIAN LEV CURRENCY'),
+    ('CZK', 'CZECH KORUNA CURRENCY'),
+    ('DKK', 'DANISH CRONE'),
+    ('EGP', 'EGYPTIAN POUND CURRENCY'),
     
 )
 class Currency(models.Model):
