@@ -21,6 +21,7 @@ CURRENCY_CHOICES = (
 class Currency(models.Model):
     currency = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
     
+    
                                 
 
 class Course(models.Model):
