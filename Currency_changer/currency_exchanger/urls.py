@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from .views import main_page
+from .views import CurrencyAPIView 
 
 
 urlpatterns = [
-    path('mainpage2/', main_page),
+    path('mainpage2/', CurrencyAPIView.as_view()),
 ]

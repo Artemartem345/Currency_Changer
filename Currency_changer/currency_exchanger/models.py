@@ -14,17 +14,17 @@ CURRENCY_CHOICES = (
     ('AZN', 'AZERBAIJANIAN MANAT CURRENCY'),
     ('BGN', 'BULGARIAN LEV CURRENCY'),
     ('CZK', 'CZECH KORUNA CURRENCY'),
-    ('DKK', 'DANISH CRONE'),
+    ('DKK', 'DANISH CRONE CURRENCY'),
     ('EGP', 'EGYPTIAN POUND CURRENCY'),
-    ('JPY', 'JAPANESE YEN CURRENCY')
+    ('JPY', 'JAPANESE YEN CURRENCY'),
 )
 class Currency(models.Model):
-    currency = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
-    
+    name = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
+     
     
                                 
 
-class Course(models.Model):
-    currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
+class CurrencyRate(models.Model):
+    currency = models.ForeignKey(Currency, on_delete=models.CASCADE, name='rate')
     date_time = models.DateTimeField()
-    course = models.FloatField()    
+    course = models.DecimalField(max_digits=10, decimal_places=4)    
