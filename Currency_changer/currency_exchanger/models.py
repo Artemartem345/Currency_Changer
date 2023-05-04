@@ -26,5 +26,7 @@ class Currency(models.Model):
 
 class CurrencyRate(models.Model):
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE, name='rate')
-    date_time = models.DateTimeField()
-    course = models.DecimalField(max_digits=10, decimal_places=4)    
+    date_time = models.DateTimeField(auto_now_add=True)
+    course = models.DecimalField(max_digits=10, decimal_places=4)
+    
+        
