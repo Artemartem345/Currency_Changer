@@ -30,7 +30,7 @@ class CurrencyAPIView(APIView):
         currency_rate = CurrencyRate.objects.create(currency=currency, rate=data_RUB)
         currency_rate.save()
         print(currency)
-        return Response 
+        return Response(data=currency_rate, status=status.HTTP_200_OK) 
         
     
     
