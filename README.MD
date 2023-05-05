@@ -6,8 +6,16 @@
 по оффицальному курсу
 
 
-стек
-python3 - 3.10.6
-MYSQL - database
-django3
-django REST FRAMEWORK
+techology stack:
+    
+    
+    python3 - 3.10.6
+    
+    
+    MYSQL - database
+    
+    
+    django3
+    
+    
+    django REST FRAMEWORK
