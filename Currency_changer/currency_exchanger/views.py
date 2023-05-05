@@ -20,6 +20,20 @@ class CurrencyAPIView(APIView):
         currency_rate.save()
         print(currency)
         return Response(data=currency_rate, status=status.HTTP_200_OK)
+    
+    def get(self, request, *args, **kwargs):
+        api_route = 'https://openexchangerates.org/api/latest.json?app_id=f39eeff3540a41fa919debe87b0071de'
+        data = requests.get(api_route)
+        new_data = data.json()
+        data_RUB = new_data['rates']['RUB']
+        currency = Currency.objects.get(name='RUB')
+        currency_rate = CurrencyRate.objects.create(currency=currency, rate=data_RUB)
+        currency_rate.save()
+        print(currency)
+        return Response 
+        
+    
+    
         
     
 
