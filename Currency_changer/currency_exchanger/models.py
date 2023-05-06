@@ -20,7 +20,8 @@ CURRENCY_CHOICES = (
 )
 class Currency(models.Model):
     name = models.CharField(max_length=150,choices=CURRENCY_CHOICES)
-     
+    def __str__(self):
+        return self.name 
   
                                 
 
