@@ -27,7 +27,7 @@ class CurrencyAPIView(APIView):
         serializer = CurrencyRateSerializer(currency_rate)
         # if serializer.is_valid():
         #     serializer.save()
-        print(calculate('USD', '20'))
+        print(calculate('USD', 'currency'))
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     
         
