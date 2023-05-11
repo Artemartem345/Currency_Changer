@@ -6,10 +6,10 @@ from rest_framework import status
 import requests
 from .models import CurrencyRate, Currency
 from .serializer import CurrencyRateSerializer, CurrencySerializer
-from .services import calculate
+from .services import calculate, calculate_currency
 
 class CurrencyAPIView(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         query_data = request.GET.get('currency')
         if query_data is None:
             return Response(status=404)
@@ -27,8 +27,10 @@ class CurrencyAPIView(APIView):
         serializer = CurrencyRateSerializer(currency_rate)
         # if serializer.is_valid():
         #     serializer.save()
-        print(calculate('USD', 'currency'))
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        # print(calculate_currency('CZK', 25))
+        func = calculate_currency('RUB', 30)
+        return Response(data=func,status=status.HTTP_200_OK)
+    
     
         
     

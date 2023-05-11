@@ -1,10 +1,25 @@
 
 from .models import CurrencyRate, Currency
-
+from datetime import datetime
 def calculate(currency:str, amount:int) -> CurrencyRate:
-    var = Currency.objects.get(currency=currency)
-    return CurrencyRate.objects.filter(var).order_by(amount) 
     
+    return CurrencyRate.objects.filter(course__gt=10)
+ 
+
+def calculate_currency(currency:str, amount:int):
+    currency_rate =  CurrencyRate.objects.filter(currency__name=currency)[0]
+    currency_course = currency_rate.course * amount
+    result = {
+        'result':f'You changed the {amount} USD on the: {currency_course} {currency}, for time:  {currency_rate.date_time}'
+        
+        }
+    return  result
+
+    
+
+
+
+
 '''
 
 
