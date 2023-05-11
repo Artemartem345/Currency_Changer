@@ -8,6 +8,7 @@ def calculate(currency:str, amount:int) -> CurrencyRate:
 
 def calculate_currency(currency:str, amount:int):
     currency_rate =  CurrencyRate.objects.filter(currency__name=currency)[0]
+    
     currency_course = currency_rate.course * amount
     result = {
         'result':f'You changed the {amount} USD on the: {currency_course} {currency}, for time:  {currency_rate.date_time}'

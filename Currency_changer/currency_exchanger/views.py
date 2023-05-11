@@ -11,6 +11,7 @@ from .services import calculate, calculate_currency
 class CurrencyAPIView(APIView):
     def get(self, request):
         query_data = request.GET.get('currency')
+        amount_data = request.GET.get('amount')
         if query_data is None:
             return Response(status=404)
         print(query_data)
@@ -28,8 +29,8 @@ class CurrencyAPIView(APIView):
         # if serializer.is_valid():
         #     serializer.save()
         # print(calculate_currency('CZK', 25))
-        func = calculate_currency('RUB', 30)
-        return Response(data=func,status=status.HTTP_200_OK)
+        currency_calculate = calculate_currency(query_data, amount=int(amount_data)) # first param is Code currency. The second param is count dollars
+        return Response(data=currency_calculate,status=status.HTTP_200_OK)
     
     
         
