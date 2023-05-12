@@ -6,12 +6,13 @@ from rest_framework import status
 import requests
 from .models import CurrencyRate, Currency
 from .serializer import CurrencyRateSerializer, CurrencySerializer
-from .services import calculate, calculate_currency
+from .services import calculate_currency
 
 class CurrencyAPIView(APIView):
     def get(self, request):
         query_data = request.GET.get('currency')
         amount_data = request.GET.get('amount')
+        currency_change_data = request.GET.get('currency', 'course')
         if query_data is None:
             return Response(status=404)
         print(query_data)
