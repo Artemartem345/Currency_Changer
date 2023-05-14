@@ -1,6 +1,10 @@
-
+import celery 
 from .models import CurrencyRate, Currency
 from datetime import datetime
+
+
+
+
 def calculate(currency:str, amount:int) -> CurrencyRate:
     
     return CurrencyRate.objects.filter(course__gt=10)
