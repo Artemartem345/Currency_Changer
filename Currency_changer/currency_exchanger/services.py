@@ -1,7 +1,7 @@
 import celery 
 from .models import CurrencyRate, Currency
 from datetime import datetime
-
+import requests
 
 
 
@@ -20,28 +20,16 @@ def calculate_currency(currency:str, amount:int):
         }
     return  result
 
+def get_currency():
+    api_route = 'https://openexchangerates.org/api/latest.json?app_id=f39eeff3540a41fa919debe87b0071de'
+    data = requests.get(api_route)
+    _data = data.json()
+    currency_data = _data['rates']['KZT']
+    return currency_data
+
+
     
 
 
 
 
-'''
-
-
-
-In SubCategory model you have a field named country which refers to ProductCategory. You can't filter with productcategory_id because there is no such column/field in current model.
-
- class SubCategory(models.Model):
-     country = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-     name = models.CharField(max_length=30)
-
-     def __str__(self):
-        return self.name 
-
-So try to fix your queries like below in forms.py and views.py :
-
-SubCategory.objects.filter(country_id=productcategory_id).order_by('name')
-
-
-
-'''
