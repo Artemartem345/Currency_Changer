@@ -1,4 +1,4 @@
-import celery 
+
 from .models import CurrencyRate, Currency
 from datetime import datetime
 import requests
@@ -26,6 +26,12 @@ def get_currency():
     _data = data.json()
     currency_data = _data['rates']['KZT']
     return currency_data
+
+def get_all_currency():
+    api_route = 'https://openexchangerates.org/api/latest.json?app_id=f39eeff3540a41fa919debe87b0071de'
+    data = requests.get(api_route)
+    data_json = data.json()
+    all_currency_data = data_json['rates']
 
 
     
