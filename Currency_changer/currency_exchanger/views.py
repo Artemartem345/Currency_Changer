@@ -6,7 +6,7 @@ from rest_framework import status
 import requests
 from .models import CurrencyRate, Currency
 from .serializer import CurrencyRateSerializer, CurrencySerializer
-from .services import calculate_currency
+from .services import calculate_currency, get_all_currency
 
 class CurrencyAPIView(APIView):
     def get(self, request):
@@ -37,6 +37,8 @@ class CourseAPIView(APIView):
         currency_data = _data['rates'][course_data]
         return Response(data={'currency_course':currency_data}, status=status.HTTP_200_OK)
     
+    
+
         
     
     

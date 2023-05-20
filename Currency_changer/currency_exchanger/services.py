@@ -32,8 +32,18 @@ def get_all_currency():
     data = requests.get(api_route)
     data_json = data.json()
     all_currency_data = data_json['rates']
+    return all_currency_data
 
-
+def get_cur_less_than_10_dolar():
+    api_route = 'https://openexchangerates.org/api/latest.json?app_id=f39eeff3540a41fa919debe87b0071de'
+    data = requests.get(api_route)
+    data_json = data.json()
+    get_cur = data_json['rates']
+    if get_cur.values() >= '10.0':
+        return get_cur
+    
+    
+    
     
 
 
