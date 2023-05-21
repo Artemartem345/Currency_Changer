@@ -19,10 +19,10 @@ def update_all_currency():
        cur_course = all_cur[c.name]
        CurrencyRate.objects.create(currency=c, course=cur_course)
        
-@app.task(name='get_exact_currency')
-def get_exact_currency():
-    res = get_cur_less_than_10_dolar()
-    cur = Currency.objects.all(name__qt=10)
+# @app.task(name='get_exact_currency')
+# def get_exact_currency():
+#     res = get_cur_less_than_10_dolar()
+#     cur = Currency.objects.all(name__qt=10)
     
 
 
