@@ -39,18 +39,15 @@ class CourseAPIView(APIView):
     
 class GetCourseAPIView(APIView):
     def get(self, request):
-        course_data = request.GET.get('course')
         api_route = 'https://openexchangerates.org/api/latest.json?app_id=f39eeff3540a41fa919debe87b0071de'
         data = requests.get(api_route)
         data_json = data.json()
-        currency_data = data_json['rates'][course_data]
-        for i in currency_data.values():
-            if str(i) >= '40.0':
-                cur = currency_data[i]                    
-        return Response(data={'cur_course':cur}, status=status.HTTP_200_OK)
-    
-    
-
+        currency_data = data_json['rates']
+        cur_lt_10_dollar = []
+        for i in currency_data.items():
+            if i <= 1:
+                cur_lt_10_dollar.append(i)
+        return Response(data={'cur': cur_lt_10_dollar}, status=status.HTTP_200_OK)
         
     
     
