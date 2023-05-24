@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'currency_exchanger',
     'rest_framework',
-    'django_celery_beat'
+    'django_celery_beat',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -127,10 +128,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-    'rest_framework_simplejwt.authentication.JWTAuthentication',
-)
-    
+REST_FRAMEWORK = {    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)}
+                                                                  
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME':datetime.timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME':datetime.timedelta(days=15),
 }
+
+AUTH_USER_MODEL = 'currency_exchanger.CustomUser'

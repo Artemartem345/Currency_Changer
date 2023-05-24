@@ -7,7 +7,7 @@ import requests
 from .models import CurrencyRate, Currency
 from .serializer import CurrencyRateSerializer, CurrencySerializer
 from .services import calculate_currency, get_all_currency
-
+from rest_framework.permissions import IsAuthenticated
 class CurrencyAPIView(APIView):
     def get(self, request):
         query_data = request.GET.get('currency')
@@ -62,7 +62,11 @@ class ShowCurrencyCourseFromDB(APIView):
         # currency_rate.save()
         # serializer = CurrencyRateSerializer(currency_rate)
         
-        
+class RegisterView(APIView):
+    permission_classes = []
+    
+    
+            
     
 
     
