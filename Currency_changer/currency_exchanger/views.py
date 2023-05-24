@@ -43,14 +43,25 @@ class GetCourseAPIView(APIView):
         data = requests.get(api_route)
         data_json = data.json()
         currency_data = data_json['rates']
-        cur_lt_10_dollar = []
-        for i in currency_data.items():
-            if i <= 1:
-                cur_lt_10_dollar.append(i)
+        cur_lt_10_dollar = {}
+        for key, value in currency_data.items():
+            if value <= 1.0:
+                cur_lt_10_dollar[key] = value
         return Response(data={'cur': cur_lt_10_dollar}, status=status.HTTP_200_OK)
         
     
-    
+class ShowCurrencyCourseFromDB(APIView):
+    def get(self, request):
+        cur_data_course = request.GET.get('course')
+        cur = CurrencyRate.objects.filter(course__gt=cur_data_course).values_list('currency__name', flat=True)
+        return Response(data={'cur_data':set(cur)}, status=status.HTTP_200_OK)
+        
+        
+        #   cur = Currency.objects.get(name=query_data)  
+        # currency_rate = CurrencyRate.objects.create(currency=cur, course=currency_data)
+        # currency_rate.save()
+        # serializer = CurrencyRateSerializer(currency_rate)
+        
         
     
 
