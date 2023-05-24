@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 import requests
 from .models import CurrencyRate, Currency
-from .serializer import CurrencyRateSerializer, CurrencySerializer
+from .serializer import CurrencyRateSerializer, CurrencySerializer, SignUpSerializer
 from .services import calculate_currency, get_all_currency
 from rest_framework.permissions import IsAuthenticated
 class CurrencyAPIView(APIView):
@@ -62,8 +62,17 @@ class ShowCurrencyCourseFromDB(APIView):
         # currency_rate.save()
         # serializer = CurrencyRateSerializer(currency_rate)
         
-class RegisterView(APIView):
+class RegisterView(APIView):    
     permission_classes = []
+    def get(self, request):
+        return Response(status=status.HTTP_200_OK)
+    def post(self, request):        
+        serializer = SignUpSerializer(data=request.data)        
+        if serializer.is_valid():
+            serializer.save()            
+            return Response(data={'email': serializer.data['email']}, status=status.HTTP_201_CREATED)
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     
     
             
