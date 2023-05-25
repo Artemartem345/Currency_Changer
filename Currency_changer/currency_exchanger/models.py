@@ -11,11 +11,9 @@ class AccountManager(BaseUserManager):
         other_fields.setdefault("is_admin", True)
         other_fields.setdefault("is_superuser", True)        
         if other_fields.get('is_staff') is not True:
-            raise ValueError(                "is_staff must be True"
-                )       
+            raise ValueError("is_staff must be True")       
         if other_fields.get('is_superuser') is not True:
-            raise ValueError(                "is_superuser must be True"
-            )        
+            raise ValueError("is_superuser must be True")        
         return self.create_user(email, password, firstname, lastname, **other_fields)
     def create_user(self, email, password, firstname, lastname, **other_fields):
         email = self.normalize_email(email)        
