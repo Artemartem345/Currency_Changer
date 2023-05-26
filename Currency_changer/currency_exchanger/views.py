@@ -8,7 +8,8 @@ from .models import CurrencyRate, Currency
 from .serializer import CurrencyRateSerializer, CurrencySerializer, SignUpSerializer
 from .services import calculate_currency, get_all_currency
 from rest_framework.permissions import IsAuthenticated
-class CurrencyAPIView(APIView):
+from .utils import DataMixin
+class CurrencyAPIView(DataMixin, APIView):
     def get(self, request):
         query_data = request.GET.get('currency')
         amount_data = request.GET.get('amount')
