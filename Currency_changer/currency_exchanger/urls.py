@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import CurrencyAPIView, CourseAPIView, GetCourseAPIView, ShowCurrencyCourseFromDB, RegisterView
+from .views import CurrencyAPIView, CourseAPIView,  ShowCurrencyCourseFromDB, RegisterView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 
