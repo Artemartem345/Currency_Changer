@@ -21,3 +21,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()        
         return user
+    def validate_email(self, val):
+        if val == '@':
+            raise serializers.ValidationError('Only one @ !')
+        return val

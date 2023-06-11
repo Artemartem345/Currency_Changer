@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'currency_exchanger',
+    'Users',
     'rest_framework',
     'django_celery_beat',
     'rest_framework_simplejwt',
@@ -136,4 +137,4 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME':datetime.timedelta(days=15),
 }
 
-AUTH_USER_MODEL = 'currency_exchanger.CustomUser'
+AUTH_USER_MODEL = 'Users.CustomUser'

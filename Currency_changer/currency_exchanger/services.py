@@ -1,6 +1,6 @@
 from .cfg import open_exchanger_api_url
 from .models import CurrencyRate, Currency
-from datetime import datetime
+
 import requests
 
 
