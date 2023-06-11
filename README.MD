@@ -29,11 +29,6 @@ http:127.0.0.1:/cur_page_course/?Currency='Your currency'&amount='Your amount (O
 
 http:127.0.0.1:/currencys/
 
-### Shows currency with course less than 1.0 dollar
-
-http:127.0.0.1:/cur_page_lt_10/
-
-
 ### Get the JWT token
 http:127.0.0.1:/token/
 

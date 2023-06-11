@@ -1,17 +1,7 @@
 from rest_framework import serializers
-from .models import CurrencyRate, Currency, CustomUser
+from .models import  CustomUser
 
 
-
-class CurrencySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Currency
-        fields = ('currency', 'course')
-        
-class CurrencyRateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CurrencyRate
-        fields = '__all__'
 
 class SignUpSerializer(serializers.ModelSerializer):    
     password2 = serializers.CharField(write_only=True)

@@ -42,7 +42,6 @@ def create_currency_rate_obj(cur, currency_data):
 
 
 def update_currency_rate(query_data):
-    
     currency_data = get_api_json()['rates'][query_data]
     cur = Currency.objects.get_or_create(name=query_data)  
     print(cur)

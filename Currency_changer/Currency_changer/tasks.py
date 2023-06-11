@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from .celery import app
-from currency_exchanger.services import get_currency, get_all_currency, get_cur_less_than_10_dolar
+from currency_exchanger.services import get_currency, get_all_currency
 from datetime import timedelta
 from currency_exchanger.models import Currency, CurrencyRate
 @app.task(name='update_currency')
@@ -46,7 +46,7 @@ def update_all_currency():
 
 app.conf.beat_schedule = {
     'run_me_every_15_sec':{
-        'task':'get_exact_currency',
+        'task':'update_all_currency',
         'schedule':timedelta(seconds=15),
         
         
