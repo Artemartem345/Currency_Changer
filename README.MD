@@ -45,3 +45,9 @@ http:127.0.0.1:/token/refresh/
 ### For registering the JWT token
 
 http:127.0.0.1:/register/
+
+# Main
+- Python manage.py runserver
+- for starting redis and celery for show cur courses every 15 seconds 
+    - launch worker -> celery -A < folger with your settings.py> worker -l info
+    - launch beat (other terminal window) -> celery -A < folder with your settings.py> beat -l info
