@@ -51,3 +51,11 @@ http:127.0.0.1:/register/
 - for starting redis and celery for show cur courses every 15 seconds 
     - launch worker -> celery -A < folger with your settings.py> worker -l info
     - launch beat (other terminal window) -> celery -A < folder with your settings.py> beat -l info
+
+
+# Technology stack
+- Python 3.10.6
+- Django 4.1.7
+- Django Rest Framework 3.14.0
+- Celery 5.2.7
+- Redis  4.5.5 broker
