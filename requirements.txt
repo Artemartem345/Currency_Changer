@@ -1,5 +1,0 @@
-- Python 3.10.6
-- Django 4.1.7
-- Django Rest Framework 3.14.0
-- Celery 5.2.7
-- Redis  4.5.5 broker
