@@ -1,15 +1,8 @@
 from __future__ import absolute_import
 from .celery import app
-from currency_exchanger.services import get_currency, get_all_currency
+from currency_exchanger.services import get_all_currency
 from datetime import timedelta
 from currency_exchanger.models import Currency, CurrencyRate
-@app.task(name='update_currency')
-def update_currency():
-    result = get_currency()
-    cur = Currency.objects.get(name='KZT')
-    update_database = CurrencyRate.objects.create(currency=cur, course=result)
-    update_database.save()
-
 
 @app.task(name='update_all_currency')
 def update_all_currency():
